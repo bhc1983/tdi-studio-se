@@ -214,7 +214,11 @@ public final class WsdlTokenManager {
             throws XPathExpressionException, ParserConfigurationException, SAXException, IOException {
         DocumentBuilder builder;
         try {
-            builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            
+            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            
+            builder = factory.newDocumentBuilder();
 
             Document document = builder.parse(new ByteArrayInputStream(inputXML.getBytes()));
 

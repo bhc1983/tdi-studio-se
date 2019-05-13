@@ -64,6 +64,8 @@ String xmlfile = ElementParameterParser.getValue(node, "__XMLFILE__");
 		}
 		
 		dbf<%=cid %> = javax.xml.parsers.DocumentBuilderFactory.newInstance();
+		dbf<%=cid %>.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		
 		dbf<%=cid %>.setValidating(false);
 		db<%=cid %> = dbf<%=cid %>.newDocumentBuilder(); 
 		org.w3c.dom.Document doc<%=cid %> = db<%=cid %>.parse(new java.io.StringBufferInputStream(sb<%=cid%>.toString()));

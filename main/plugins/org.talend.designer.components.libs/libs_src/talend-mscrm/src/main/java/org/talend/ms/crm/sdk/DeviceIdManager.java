@@ -20,6 +20,7 @@ import java.io.StringWriter;
 import java.util.Random;
 import java.util.UUID;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -232,6 +233,9 @@ public final class DeviceIdManager {
 
             // Parse the response in a XML document.
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            
+            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(entity.getContent());
             document.getDocumentElement().normalize();

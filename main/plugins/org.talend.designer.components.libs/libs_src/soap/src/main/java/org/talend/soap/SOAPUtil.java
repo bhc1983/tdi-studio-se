@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -208,6 +209,9 @@ public class SOAPUtil {
     private Document extractContentAsDocument(SOAPHeader header) throws ParserConfigurationException, TransformerException {
         Document document;
         DocumentBuilderFactory factory = new com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl();
+        
+        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.newDocument();
