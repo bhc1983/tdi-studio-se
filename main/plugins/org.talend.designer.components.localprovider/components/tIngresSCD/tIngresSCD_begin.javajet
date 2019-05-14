@@ -79,7 +79,7 @@ if(inputSchema != null && inputSchema.size() > 0 && outputSchema != null && outp
 	        <%
         } else {
             %>
-            String connectionString_<%=cid %> = "jdbc:ingres://" + <%=dbhost%> + ":" + <%=dbport%> + "/" + <%=dbname%> + "?" + <%=dbproperties%>;
+            String connectionString_<%=cid %> = "jdbc:ingres://" + <%=dbhost%> + ":" + <%=dbport%> + "/" + <%=dbname%> + ";" + <%=dbproperties%>;
             <%
         }       
         %>

@@ -161,7 +161,7 @@ if(useExistingConnection) {
 		<%
 	} else {
 	    %>
-	    String url_<%=cid %> = "jdbc:ingres://" + <%=dbhost%> + ":" + <%=dbport%> + "/" + <%=dbname%> + "?" + <%=dbproperties%>;
+	    String url_<%=cid %> = "jdbc:ingres://" + <%=dbhost%> + ":" + <%=dbport%> + "/" + <%=dbname%> + ";" + <%=dbproperties%>;
 	    <%
 	}
 	%>
