@@ -53,7 +53,7 @@ public final class DeviceIdManager {
     /**
      * Logger
      */
-    static final Logger Log = Logger.getLogger(DeviceIdManager.class.getName());
+    static final org.eclipse.equinox.log.Logger Log = Logger.getLogger(DeviceIdManager.class.getName());
 
     private static final Random RandomInstance = new Random();
 
@@ -234,7 +234,12 @@ public final class DeviceIdManager {
             // Parse the response in a XML document.
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             
-            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            try {
+	            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+	            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            } catch (Exception e) {
+            	Log.warn("failed to enable xml safe feature");
+            }
             
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(entity.getContent());

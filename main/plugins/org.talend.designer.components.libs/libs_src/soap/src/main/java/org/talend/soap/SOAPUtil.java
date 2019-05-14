@@ -210,7 +210,12 @@ public class SOAPUtil {
         Document document;
         DocumentBuilderFactory factory = new com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl();
         
-        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        try {
+        	factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+        	factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        } catch (Exception e) {
+        	//do nothing
+        }
         
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
