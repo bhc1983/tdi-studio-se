@@ -53,7 +53,7 @@ public final class DeviceIdManager {
     /**
      * Logger
      */
-    static final org.eclipse.equinox.log.Logger Log = Logger.getLogger(DeviceIdManager.class.getName());
+    static final Logger Log = Logger.getLogger(DeviceIdManager.class.getName());
 
     private static final Random RandomInstance = new Random();
 
