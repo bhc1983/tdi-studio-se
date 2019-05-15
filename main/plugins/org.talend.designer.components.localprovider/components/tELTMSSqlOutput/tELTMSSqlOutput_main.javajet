@@ -30,7 +30,7 @@ imports="
 	String differenttable = ElementParameterParser.getValue(node, "__DIFFERENT_TABLE_NAME__");
 	boolean useDifferentTable = "true".equals(ElementParameterParser.getValue(node, "__USE_DIFFERENT_TABLE__"));
 	boolean isTableNameVariable="true".equals(ElementParameterParser.getValue(node, "__IS_TABLE_NAME_VARIABLE__"));
-	boolean useUpdateUsingStatement="true".equals(ElementParameterParser.getValue(node, "__USE_UPDATE_USING_STATEMENT__"));
+	boolean useUpdateStatement="true".equals(ElementParameterParser.getValue(node, "__USE_UPDATE_STATEMENT__"));
 	%>
 	String select_query_<%=cid %> = null;	
 	String tableName_<%=cid%> = null;
@@ -310,7 +310,7 @@ for(Column colStmt:stmtStructure){
 
 <%
 	}else if (("UPDATE").equals(dataAction)){
-	if(useUpdateUsingStatement){
+	if(useUpdateStatement){
 %>  
     String updateQuery_<%=cid %> = select_query_<%=cid %>
 <%
