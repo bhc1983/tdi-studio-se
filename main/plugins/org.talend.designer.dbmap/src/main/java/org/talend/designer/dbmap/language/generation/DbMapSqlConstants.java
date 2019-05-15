@@ -43,6 +43,8 @@ public interface DbMapSqlConstants {
      */
     public final static String SELECT = "SELECT"; //$NON-NLS-1$
 
+    public final static String UPDATE = "UPDATE"; //$NON-NLS-1$
+
     public final static String FROM = "FROM"; //$NON-NLS-1$
 
     public final static String WHERE = "WHERE"; //$NON-NLS-1$

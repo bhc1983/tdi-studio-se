@@ -930,6 +930,19 @@ public abstract class DbGenerationManager {
         return retConnection;
     }
 
+    protected IConnection getConnectonByMetadataName(List<IConnection> connections, String metaTableName) {
+        IConnection retConnection = null;
+        for (IConnection iconn : connections) {
+            IMetadataTable metadataTable = iconn.getMetadataTable();
+            String tName = iconn.getMetaName() != null ? iconn.getMetaName() : iconn.getUniqueName();
+            if (tName.equals(metaTableName) && metadataTable != null) {
+                retConnection = iconn;
+                break;
+            }
+        }
+        return retConnection;
+    }
+
     protected void buildTableDeclaration(DbMapComponent component, StringBuilder sb, ExternalDbMapTable inputTable) {
         Object inConns = component.getIncomingConnections();
 
