@@ -47,6 +47,8 @@ public interface DbMapSqlConstants {
 
     public final static String FROM = "FROM"; //$NON-NLS-1$
 
+    public final static String INNER_JOIN = "INNER JOIN"; //$NON-NLS-1$
+
     public final static String WHERE = "WHERE"; //$NON-NLS-1$
 
     public final static String AND = "AND"; //$NON-NLS-1$
