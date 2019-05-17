@@ -61,7 +61,7 @@ public class CleanCustomerMatcherField extends AbstractJobMigrationTask {
         public void transform(NodeType node) {
             if (GlobalServiceRegister.getDefault().isServiceRegistered(IDQComponentService.class)) {
                 final IDQComponentService service =
-                        GlobalServiceRegister.getDefault().getService(IDQComponentService.class);
+                        (IDQComponentService) GlobalServiceRegister.getDefault().getService(IDQComponentService.class);
                 service.correctlyCustomMatcherParameter(node);
             }
         }
